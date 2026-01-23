@@ -1,4 +1,6 @@
-function Form() {
+function Form({addNewTask}) {
+
+  console.log()
   return (
     <div className="form">
       <form>
