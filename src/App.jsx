@@ -18,7 +18,7 @@ function App() {
       <div className="todo-container">
         <Header />
         <Form addNewTask={addTask} />
-        <Tasks />
+        <Tasks allTasks={tasks}/>
       </div>
     </div>
   );

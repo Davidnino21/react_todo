@@ -1,10 +1,10 @@
 import { FaRegTrashCan } from "react-icons/fa6";
 
-function Task() {
+function Task({task}) {
   return (
     <div className="task">
       <input type="checkbox" />
-      <p>john swift</p>
+      <p>{task.text}</p>
       <FaRegTrashCan className="trash-icon" />
     </div>
   );

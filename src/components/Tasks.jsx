@@ -1,14 +1,13 @@
 import Task from "./Task";
 
-function Tasks() {
+function Tasks({allTasks}) {
+console.log(allTasks[0])
   return (
     <div className="task-container">
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
+      {allTasks.map(task => (
+        <Task key={task.id} task={task}/>
+        
+      ))}
     </div>
   );
 }

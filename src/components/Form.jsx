@@ -1,10 +1,20 @@
-function Form({addNewTask}) {
+import { useState } from "react";
+function Form({ addNewTask }) {
+  const [userTask, setUserTask] = useState("");
 
-  console.log()
+  function handleNewTask(e) {
+    setUserTask(e.target.value);
+  }
+
+  function handleAddTask(e) {
+    e.preventDefault();
+    addNewTask(userTask)
+  }
+
   return (
     <div className="form">
-      <form>
-        <input type="text" />
+      <form onSubmit={handleAddTask}>
+        <input onChange={handleNewTask} type="text" />
         <button>Add task</button>
       </form>
     </div>
