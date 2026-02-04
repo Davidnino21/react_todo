@@ -8,13 +8,14 @@ function Form({ addNewTask }) {
 
   function handleAddTask(e) {
     e.preventDefault();
-    addNewTask(userTask)
+    addNewTask(userTask);
+    setUserTask("");
   }
 
   return (
     <div className="form">
       <form onSubmit={handleAddTask}>
-        <input onChange={handleNewTask} type="text" />
+        <input onChange={handleNewTask} type="text" value={userTask} />
         <button>Add task</button>
       </form>
     </div>

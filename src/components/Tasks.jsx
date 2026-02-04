@@ -1,12 +1,15 @@
 import Task from "./Task";
 
-function Tasks({allTasks}) {
-console.log(allTasks[0])
+function Tasks({ allTasks, deleteTask, markComplete }) {
   return (
     <div className="task-container">
-      {allTasks.map(task => (
-        <Task key={task.id} task={task}/>
-        
+      {allTasks.map((task) => (
+        <Task
+          key={task.id}
+          task={task}
+          deleteTask={deleteTask}
+          markComplete={markComplete}
+        />
       ))}
     </div>
   );

@@ -86,7 +86,7 @@ body {
   padding: 13px;
 }
 
-.task input [type="checkbox"]:checked{
+.task input[type="checkbox"]:checked{
   background-color: green;
 }
 

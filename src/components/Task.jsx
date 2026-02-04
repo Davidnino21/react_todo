@@ -1,11 +1,19 @@
+import { useState } from "react";
 import { FaRegTrashCan } from "react-icons/fa6";
 
-function Task({task}) {
+function Task({ task, deleteTask, markComplete }) {
+  // function removeTask() {
+  //   deleteTask(task.id)
+  // }
+
   return (
     <div className="task">
-      <input type="checkbox" />
+      <input type="checkbox" checked={task.done} onChange={() => markComplete(task.id)}/>
       <p>{task.text}</p>
-      <FaRegTrashCan className="trash-icon" />
+      <FaRegTrashCan
+        className="trash-icon"
+        onClick={() => deleteTask(task.id)}
+      />
     </div>
   );
 }
