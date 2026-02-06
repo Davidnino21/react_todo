@@ -20,16 +20,39 @@ function App() {
   function markComplete(id) {
     const currentTasks = tasks;
     const foundTask = currentTasks.find((task) => task.id === id);
-    foundTask.done = !foundTask.done
-    setTasks([...currentTasks])
+    foundTask.done = !foundTask.done;
+    setTasks([...currentTasks]);
   }
+
+  const completedCount = tasks.reduce((total, task) => {
+    if (task.done) {
+      return total + 1;
+    } else {
+      return total;
+    }
+  }, 0);
+
+  const incompleteCount = tasks.reduce((total, task) => {
+    if (!task.done) {
+      return total + 1;
+    } else {
+      return total;
+    }
+  }, 0);
 
   return (
     <div className="app-container">
       <div className="todo-container">
-        <Header />
+        <Header
+          completedCount={completedCount}
+          incompleteCount={incompleteCount}
+        />
         <Form addNewTask={addTask} />
-        <Tasks allTasks={tasks} deleteTask={deleteTask} markComplete={markComplete}/>
+        <Tasks
+          allTasks={tasks}
+          deleteTask={deleteTask}
+          markComplete={markComplete}
+        />
       </div>
     </div>
   );
