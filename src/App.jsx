@@ -2,10 +2,18 @@ import "./App.css";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getTasks, saveTasks } from "./localStorage";
+
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(getTasks());
+
+  useEffect(() => {
+    if (tasks.length > 0) {
+      saveTasks(tasks)
+    }
+  }, [tasks])
 
   function addTask(text) {
     const newTask = { text, done: false, id: Date.now() };
